@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const fieldClass =
-  "w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-400 outline-none transition focus:border-rose-400 focus:ring-2 focus:ring-rose-200";
+  "w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-400 outline-none transition focus:border-matcha-400 focus:ring-2 focus:ring-matcha-200";
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -69,7 +69,7 @@ export default function ContactForm() {
       </div>
       <button
         type="submit"
-        className="w-full rounded-full bg-stone-900 px-6 py-3.5 font-medium text-white transition hover:bg-rose-500"
+        className="w-full rounded-full bg-stone-900 px-6 py-3.5 font-medium text-white transition hover:bg-matcha-500"
       >
         문의 보내기
       </button>

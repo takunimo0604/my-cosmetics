@@ -1,26 +1,30 @@
 import Image from "next/image";
 import AuthModal from "./auth-modal";
 import Board from "./board";
+import CartDrawer, { AddToCartButton } from "./cart";
 import ContactForm from "./contact-form";
 import ToastHost from "./toast";
 
 const products = [
   {
+    id: "serum",
     name: "글로우 하이드라 세럼",
     description: "히알루론산과 비타민 B5가 깊은 수분과 투명한 광채를 선사합니다.",
-    price: "38,000원",
+    price: 38000,
     image: "/products/serum.jpg",
   },
   {
+    id: "cream",
     name: "실크 밸런스 크림",
     description: "가볍게 스며들어 하루 종일 촉촉함을 지켜주는 데일리 보습 크림.",
-    price: "42,000원",
+    price: 42000,
     image: "/products/cream.jpg",
   },
   {
+    id: "balm",
     name: "퓨어 클렌징 밤",
     description: "자극 없이 메이크업과 노폐물을 부드럽게 녹여내는 클렌저.",
-    price: "29,000원",
+    price: 29000,
     image: "/products/balm.jpg",
   },
 ];
@@ -37,24 +41,27 @@ export default function Home() {
           </a>
           <ul className="flex items-center gap-5 text-sm text-stone-600 sm:gap-8">
             <li>
-              <a href="#products" className="transition hover:text-rose-500">
+              <a href="#products" className="transition hover:text-matcha-500">
                 제품
               </a>
             </li>
             <li>
-              <a href="#story" className="transition hover:text-rose-500">
+              <a href="#story" className="transition hover:text-matcha-500">
                 브랜드
               </a>
             </li>
             <li>
-              <a href="#board" className="transition hover:text-rose-500">
+              <a href="#board" className="transition hover:text-matcha-500">
                 Q&amp;A
               </a>
             </li>
             <li>
-              <a href="#contact" className="transition hover:text-rose-500">
+              <a href="#contact" className="transition hover:text-matcha-500">
                 문의
               </a>
+            </li>
+            <li>
+              <CartDrawer />
             </li>
             <li>
               <AuthModal />
@@ -65,11 +72,11 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-rose-100 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-amber-100 blur-3xl" />
+        <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-matcha-100 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-96 w-96 rounded-full bg-matcha-100 blur-3xl" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-32">
           <div>
-            <p className="mb-4 text-xs tracking-[0.3em] text-rose-500">
+            <p className="mb-4 text-xs tracking-[0.3em] text-matcha-500">
               CLEAN BEAUTY
             </p>
             <h1 className="text-4xl font-light leading-tight sm:text-5xl lg:text-6xl">
@@ -84,13 +91,13 @@ export default function Home() {
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#products"
-                className="rounded-full bg-stone-900 px-8 py-3.5 text-center text-white transition hover:bg-rose-500"
+                className="rounded-full bg-stone-900 px-8 py-3.5 text-center text-white transition hover:bg-matcha-500"
               >
                 제품 보러가기
               </a>
               <a
                 href="#story"
-                className="rounded-full border border-stone-300 px-8 py-3.5 text-center transition hover:border-rose-400 hover:text-rose-500"
+                className="rounded-full border border-stone-300 px-8 py-3.5 text-center transition hover:border-matcha-400 hover:text-matcha-500"
               >
                 브랜드 스토리
               </a>
@@ -98,7 +105,7 @@ export default function Home() {
           </div>
           <div
             aria-hidden
-            className="mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-t-[10rem] rounded-b-3xl bg-gradient-to-b from-rose-100 via-amber-50 to-stone-100 shadow-xl"
+            className="mx-auto flex aspect-[4/5] w-full max-w-sm items-center justify-center rounded-t-[10rem] rounded-b-3xl bg-gradient-to-b from-matcha-100 via-matcha-50 to-stone-100 shadow-xl"
           >
             <span className="text-7xl">🌿</span>
           </div>
@@ -108,7 +115,7 @@ export default function Home() {
       {/* Products */}
       <section id="products" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
         <div className="mb-14 text-center">
-          <p className="mb-3 text-xs tracking-[0.3em] text-rose-500">
+          <p className="mb-3 text-xs tracking-[0.3em] text-matcha-500">
             SIGNATURE
           </p>
           <h2 className="text-3xl font-light sm:text-4xl">대표 제품</h2>
@@ -116,7 +123,7 @@ export default function Home() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p) => (
             <article
-              key={p.name}
+              key={p.id}
               className="group overflow-hidden rounded-2xl bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="relative aspect-square overflow-hidden bg-stone-100">
@@ -134,10 +141,17 @@ export default function Home() {
                   {p.description}
                 </p>
                 <div className="mt-4 flex items-center justify-between">
-                  <span className="font-medium">{p.price}</span>
-                  <button className="rounded-full border border-stone-300 px-4 py-1.5 text-sm transition hover:border-rose-400 hover:text-rose-500">
-                    담기
-                  </button>
+                  <span className="font-medium">
+                    {p.price.toLocaleString("ko-KR")}원
+                  </span>
+                  <AddToCartButton
+                    product={{
+                      id: p.id,
+                      name: p.name,
+                      price: p.price,
+                      image: p.image,
+                    }}
+                  />
                 </div>
               </div>
             </article>
@@ -150,10 +164,10 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
           <div
             aria-hidden
-            className="aspect-[4/3] rounded-3xl bg-gradient-to-tr from-amber-100 via-rose-50 to-stone-100"
+            className="aspect-[4/3] rounded-3xl bg-gradient-to-tr from-matcha-100 via-matcha-50 to-stone-100"
           />
           <div>
-            <p className="mb-3 text-xs tracking-[0.3em] text-rose-500">
+            <p className="mb-3 text-xs tracking-[0.3em] text-matcha-500">
               OUR STORY
             </p>
             <h2 className="text-3xl font-light leading-snug sm:text-4xl">
@@ -177,7 +191,7 @@ export default function Home() {
                 ["95%", "자연 유래 성분"],
               ].map(([num, label]) => (
                 <div key={label}>
-                  <dt className="text-2xl font-light text-rose-500">{num}</dt>
+                  <dt className="text-2xl font-light text-matcha-500">{num}</dt>
                   <dd className="mt-1 text-xs text-stone-500">{label}</dd>
                 </div>
               ))}
@@ -190,7 +204,7 @@ export default function Home() {
       <section id="board" className="scroll-mt-16">
         <div className="mx-auto max-w-2xl px-6 py-20 md:py-28">
           <div className="mb-10 text-center">
-            <p className="mb-3 text-xs tracking-[0.3em] text-rose-500">
+            <p className="mb-3 text-xs tracking-[0.3em] text-matcha-500">
               Q&amp;A · REVIEW
             </p>
             <h2 className="text-3xl font-light sm:text-4xl">Q&amp;A / 리뷰</h2>
@@ -203,10 +217,10 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="bg-rose-50/60">
+      <section id="contact" className="bg-matcha-50/60">
         <div className="mx-auto max-w-xl px-6 py-20 md:py-28">
           <div className="mb-10 text-center">
-            <p className="mb-3 text-xs tracking-[0.3em] text-rose-500">
+            <p className="mb-3 text-xs tracking-[0.3em] text-matcha-500">
               CONTACT
             </p>
             <h2 className="text-3xl font-light sm:text-4xl">문의하기</h2>

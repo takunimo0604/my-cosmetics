@@ -37,7 +37,7 @@ export default function ToastHost() {
           role={t.type === "error" ? "alert" : "status"}
           className={`rounded-2xl px-5 py-3 text-sm shadow-lg ${
             t.type === "error"
-              ? "bg-rose-500 text-white"
+              ? "bg-matcha-500 text-white"
               : "bg-stone-900 text-white"
           }`}
         >

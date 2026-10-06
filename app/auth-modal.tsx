@@ -8,7 +8,7 @@ import { toast } from "./toast";
 type Mode = "login" | "signup" | "reset";
 
 const fieldClass =
-  "w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-400 outline-none transition focus:border-rose-400 focus:ring-2 focus:ring-rose-200";
+  "w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-400 outline-none transition focus:border-matcha-400 focus:ring-2 focus:ring-matcha-200";
 
 export default function AuthModal() {
   const [open, setOpen] = useState(false);
@@ -145,7 +145,7 @@ export default function AuthModal() {
           <button
             type="button"
             onClick={() => setShowInfo(true)}
-            className="rounded-full border border-stone-300 px-4 py-1.5 text-sm text-stone-700 transition hover:border-rose-400 hover:text-rose-500"
+            className="rounded-full border border-stone-300 px-4 py-1.5 text-sm text-stone-700 transition hover:border-matcha-400 hover:text-matcha-500"
           >
             내 정보
           </button>
@@ -153,7 +153,7 @@ export default function AuthModal() {
         <button
           type="button"
           onClick={signedIn ? handleSignOut : () => setOpen(true)}
-          className="rounded-full border border-stone-300 px-4 py-1.5 text-sm text-stone-700 transition hover:border-rose-400 hover:text-rose-500"
+          className="rounded-full border border-stone-300 px-4 py-1.5 text-sm text-stone-700 transition hover:border-matcha-400 hover:text-matcha-500"
         >
           {signedIn ? "로그아웃" : "로그인"}
         </button>
@@ -181,7 +181,7 @@ export default function AuthModal() {
               >
                 ✕
               </button>
-              <p className="text-xs tracking-[0.3em] text-rose-500">takunimo</p>
+              <p className="text-xs tracking-[0.3em] text-matcha-500">takunimo</p>
               <h2 className="mt-2 mb-6 text-2xl font-light">내 정보</h2>
               <dl className="space-y-4 text-sm">
                 <div>
@@ -220,7 +220,7 @@ export default function AuthModal() {
                 ✕
               </button>
 
-              <p className="text-xs tracking-[0.3em] text-rose-500">
+              <p className="text-xs tracking-[0.3em] text-matcha-500">
                 takunimo
               </p>
               <h2 className="mt-2 mb-8 text-2xl font-light">
@@ -316,7 +316,7 @@ export default function AuthModal() {
                   </p>
                 )}
                 {error && (
-                  <p role="alert" className="text-sm text-rose-500">
+                  <p role="alert" className="text-sm text-matcha-500">
                     {error}
                   </p>
                 )}
@@ -324,7 +324,7 @@ export default function AuthModal() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full rounded-full bg-stone-900 px-6 py-3.5 font-medium text-white transition hover:bg-rose-500 disabled:opacity-60"
+                  className="w-full rounded-full bg-stone-900 px-6 py-3.5 font-medium text-white transition hover:bg-matcha-500 disabled:opacity-60"
                 >
                   {loading
                     ? "처리 중..."
@@ -341,7 +341,7 @@ export default function AuthModal() {
                   <button
                     type="button"
                     onClick={() => switchMode("reset")}
-                    className="text-stone-500 underline-offset-4 hover:text-rose-500 hover:underline"
+                    className="text-stone-500 underline-offset-4 hover:text-matcha-500 hover:underline"
                   >
                     비밀번호를 잊으셨나요?
                   </button>
@@ -353,7 +353,7 @@ export default function AuthModal() {
                   <button
                     type="button"
                     onClick={() => switchMode("login")}
-                    className="font-medium text-rose-500 underline-offset-4 hover:underline"
+                    className="font-medium text-matcha-500 underline-offset-4 hover:underline"
                   >
                     로그인 화면으로 돌아가기
                   </button>
@@ -364,7 +364,7 @@ export default function AuthModal() {
                   <button
                     type="button"
                     onClick={() => switchMode(isLogin ? "signup" : "login")}
-                    className="font-medium text-rose-500 underline-offset-4 hover:underline"
+                    className="font-medium text-matcha-500 underline-offset-4 hover:underline"
                   >
                     {isLogin ? "회원가입" : "로그인"}
                   </button>

@@ -32,7 +32,7 @@ type Post = {
 };
 
 const fieldClass =
-  "w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-400 outline-none transition focus:border-rose-400 focus:ring-2 focus:ring-rose-200";
+  "w-full rounded-xl border border-stone-300 bg-white px-4 py-3 text-stone-800 placeholder:text-stone-400 outline-none transition focus:border-matcha-400 focus:ring-2 focus:ring-matcha-200";
 
 export default function Board() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -166,7 +166,7 @@ export default function Board() {
             <button
               type="submit"
               disabled={saving}
-              className="flex-1 rounded-full bg-stone-900 px-6 py-3 font-medium text-white transition hover:bg-rose-500 disabled:opacity-60"
+              className="flex-1 rounded-full bg-stone-900 px-6 py-3 font-medium text-white transition hover:bg-matcha-500 disabled:opacity-60"
             >
               {saving ? "저장 중..." : editing ? "수정 완료" : "등록"}
             </button>
@@ -174,7 +174,7 @@ export default function Board() {
               <button
                 type="button"
                 onClick={() => setEditing(null)}
-                className="rounded-full border border-stone-300 px-6 py-3 transition hover:border-rose-400 hover:text-rose-500"
+                className="rounded-full border border-stone-300 px-6 py-3 transition hover:border-matcha-400 hover:text-matcha-500"
               >
                 취소
               </button>
@@ -208,13 +208,13 @@ export default function Board() {
                           .getElementById("board")
                           ?.scrollIntoView({ behavior: "smooth" });
                       }}
-                      className="text-stone-500 transition hover:text-rose-500"
+                      className="text-stone-500 transition hover:text-matcha-500"
                     >
                       수정
                     </button>
                     <button
                       onClick={() => handleDelete(p)}
-                      className="text-stone-500 transition hover:text-rose-500"
+                      className="text-stone-500 transition hover:text-matcha-500"
                     >
                       삭제
                     </button>

@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@theme {
+  --color-matcha-50: #f4f7ec;
+  --color-matcha-100: #e6eed3;
+  --color-matcha-200: #cddfa8;
+  --color-matcha-300: #b0c97a;
+  --color-matcha-400: #9bb85c;
+  --color-matcha-500: #7a9a3e;
+  --color-matcha-600: #5f7a2f;
+}
